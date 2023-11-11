@@ -17,3 +17,11 @@ img
         width: 100%;
     }
 }
+.breadcrumb {
+    padding-left: 20px;
+  }
+  
+  /* Tùy chỉnh để loại bỏ padding phải của mục cuối cùng */
+  .breadcrumb .breadcrumb-item:last-child {
+    padding-left: 0;
+  }
