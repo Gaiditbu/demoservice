@@ -1,3 +1,12 @@
 inpiut.ng-invalid.ng-touched{
     border:1 px solid red;
 }
+.breadcrumb {
+    padding-left: 20px;
+  }
+  
+  /* Tùy chỉnh để loại bỏ padding phải của mục cuối cùng */
+  .breadcrumb .breadcrumb-item:last-child {
+    padding-left: 0;
+  }
+  
