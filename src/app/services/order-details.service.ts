@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Product } from '../model/product.model';
+import { Observable, map, catchError, throwError } from 'rxjs';
 
 
 const apiUrl = 'http://localhost:8069/api/v1/product-list';
@@ -14,33 +15,34 @@ export class OrderDetailsService {
   constructor(private http: HttpClient) { }
 
   //API get list product in odoo
-  loadedProducts:Product[] = [];
-  fetchProducts() {
-    this.http
-      .post(
-        apiUrl,
-        {
-          headers: new HttpHeaders({
-              'Content-Type': 'application/json',
-              jsonrpc : '2.0',
-            }),
-          params: new HttpParams().set('limit', 5)
-        }
-      )
-      .subscribe((responese: any) => {
-        responese.result.data.forEach((data: any) => {
+  fetchProducts(): Observable<Product[]> {
+    return this.http.post(apiUrl, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        jsonrpc: '2.0',
+      }),
+      params: new HttpParams().set('limit', '5')
+    }).pipe(
+      map((response: any) => {
+        const loadedProducts: Product[] = [];
+        if (response.result.code===200) {
+          response.result.data.forEach((data: any) => {
             const product: Product = {
               id: data.id,
               foodName: data.foodName,
               foodDetails: data.foodDetails,
               foodPrice: data.foodPrice,
               foodImg: `data:image/png;base64, ${data.foodImg}`
-          };
-          this.loadedProducts.push(product);
-          
-        });
-    });
-    return this.loadedProducts
+            };
+            loadedProducts.push(product);
+          });
+        }
+        return loadedProducts;
+      }),
+      catchError(errorRes => {
+          return throwError(errorRes);
+        })
+    );
   }
 
   //Static data
