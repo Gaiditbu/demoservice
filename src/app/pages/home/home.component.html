@@ -44,5 +44,10 @@
             </div>
         </div>
     </div>
+    <p *ngIf="isFetching && !error">Loading...</p>
+    <div class="alert alert-danger" *ngIf="error">
+        <h1>An Error Occurred</h1>
+        <p>{{ response_error }}</p>
+    </div>
     <a routerLink="menu" class="viewmorebtn">View more <i class="bi bi-arrow-right"></i></a>
 </div>
