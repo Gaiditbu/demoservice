@@ -11,7 +11,8 @@ export class HomeComponent implements OnInit {
   constructor(private service:OrderDetailsService) { }
   foodData:any;
   ngOnInit(): void {
-    this.foodData = this.service.foodDetails;
+    // this.foodData = this.service.foodDetails;
+    this.foodData = this.service.fetchProducts();
   }
 
 }

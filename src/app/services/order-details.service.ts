@@ -1,14 +1,49 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Product } from '../model/product.model';
+
+
+const apiUrl = 'http://localhost:8069/api/v1/product-list';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class OrderDetailsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // fooddetails 
-  
+  //API get list product in odoo
+  loadedProducts:Product[] = [];
+  fetchProducts() {
+    this.http
+      .post(
+        apiUrl,
+        {
+          headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              jsonrpc : '2.0',
+            }),
+          params: new HttpParams().set('limit', 5)
+        }
+      )
+      .subscribe((responese: any) => {
+        responese.result.data.forEach((data: any) => {
+            const product: Product = {
+              id: data.id,
+              foodName: data.foodName,
+              foodDetails: data.foodDetails,
+              foodPrice: data.foodPrice,
+              foodImg: `data:image/png;base64, ${data.foodImg}`
+          };
+          this.loadedProducts.push(product);
+          
+        });
+    });
+    return this.loadedProducts
+  }
+
+  //Static data
   foodDetails = [
     {
       id:1,
@@ -74,8 +109,4 @@ export class OrderDetailsService {
       foodImg:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/wtj8esaeslvlscv8glj6"
     }
   ]
-
-
-  
-
 }

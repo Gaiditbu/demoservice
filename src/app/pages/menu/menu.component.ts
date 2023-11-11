@@ -11,7 +11,11 @@ export class MenuComponent implements OnInit {
   constructor(private service:OrderDetailsService) { }
   foodData:any;
   ngOnInit(): void {
-    this.foodData = this.service.foodDetails;
+    ///Static data
+    // this.foodData = this.service.foodDetails;
+
+    //USE API 
+    this.foodData = this.service.fetchProducts();
   }
 
 }
