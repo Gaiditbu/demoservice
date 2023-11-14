@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div *ngIf="showLogin">
+  <h1>Login</h1>
+  <!-- Your login form goes here -->
+  <form>
+    <!-- Login form fields -->
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a (click)="showSignupForm()">Sign up</a></p>
+</div>
+<div *ngIf="showSignup">
+  <app-signup></app-signup>
+</div>
