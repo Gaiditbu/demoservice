@@ -9,4 +9,12 @@ inpiut.ng-invalid.ng-touched{
   .breadcrumb .breadcrumb-item:last-child {
     padding-left: 0;
   }
+.lomao{
+  
+    background-image: url('../../../assets/img/banner2.jpg');
+    height: 450px;
+    background-position: center top;
+    background-size: cover;
+
+}
   
