@@ -14,7 +14,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
-//import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+/**import { ProductDetailsComponent } from './pages/product-details/product-details.component';*/
 
 
 @NgModule({
