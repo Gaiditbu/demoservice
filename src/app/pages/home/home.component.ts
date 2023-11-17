@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   isFetching = false;
   response_error: string = '';  
   error:any = null
-  onFecthProducts() {
+  /**onFecthProducts() {
     this.isFetching = true;
     this.service.fetchProducts()
     .subscribe((products: Product[]) => {
@@ -23,9 +23,11 @@ export class HomeComponent implements OnInit {
     }, (error) => {
       this.response_error = error
     });
-  }
+  }*/
 
   ngOnInit(): void {
-    this.onFecthProducts()
+    /**this.onFecthProducts()*/
+    this.foodData =this.service.foodDetails;
   }
+
 }
