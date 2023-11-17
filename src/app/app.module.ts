@@ -13,6 +13,8 @@ import { MenupageComponent } from './pages/menupage/menupage.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 
+import { HttpClientModule } from '@angular/common/http';
+//import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 
 @NgModule({
@@ -27,13 +29,15 @@ import { LoginComponent } from './pages/login/login.component';
     MenupageComponent,
     SignupComponent,
     LoginComponent,
+    /**ProductDetailsComponent,*/
 
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

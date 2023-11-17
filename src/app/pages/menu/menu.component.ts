@@ -7,6 +7,7 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+item: any;
 
   constructor(private service:OrderDetailsService) { }
   foodData:any;
