@@ -8,7 +8,7 @@
     </button>
     
     <div class="collapse navbar-collapse" id="navbarNav">
-       <form class="d-flex">
+      <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
@@ -30,9 +30,33 @@
             <i class="fa fa-shopping-cart"></i> <!-- Class của Font Awesome -->
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="" routerLinkActive="active-link" class="btn btn-dark">Login/Sign In</a>
+          
+        <li class="nav-item"
+          *ngIf="!user; else showLogin">
+            <a class="btn btn-dark" [routerLink]="'/login'" routerLinkActive="active-link">Login/Sign In</a>
         </li>
+        <ng-template #showLogin>
+          <li class="rounded-pill badge bg-dark p-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <a>
+              <nz-avatar nzIcon="user" 
+              [nzSrc]="user.avatar">
+              </nz-avatar>
+            </a>
+          </li>
+        </ng-template>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item" type="button"
+            [routerLink]="'/personal'" routerLinkActive="active-link">
+              <span nz-icon nzType="user" nzTheme="outline"></span> Personal
+          </a>
+        </li>
+          <li>
+            <a class="dropdown-item" type="button" 
+            (click)="logout()">
+              <span nz-icon nzType="logout" nzTheme="outline"></span> Log out</a>
+          </li>
+        </ul>
       </ul>
     </div>
   </div>

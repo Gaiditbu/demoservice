@@ -1,0 +1,96 @@
+<section class="personal">
+    <div class="container">
+        <div class="card my-4 p-3 pb-1 position-relative ">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 col-12 d-flex flex-column align-items-center">
+                        <p-image [src]="avatar" [preview]="true" alt="Image" width="300">
+                            <ng-template pTemplate="indicator">
+                                <i class="fa fa-check text-white fs-3"></i>
+                            </ng-template>
+                        </p-image>
+                        <label class="label-upload-file mt-2 text-success position-absolute "
+                            style="line-height: 1.5; font-size: 15px; bottom: 10px;" for="upload-avatar"
+                            (click)="openFileInput()">
+                            <span nz-icon nzType="edit" nzTheme="outline"></span> New image
+                        </label>
+                        <input #uploadInput type="file" class="d-none" accept="image/png, image/jpeg" (change)="onChangeAvatar($event)">
+                    </div>
+                    <div class="col-md-8 col-12">
+                        <div class="row">
+                            <h1 class="text-success mb-3">My Profile</h1>
+                            <div class="col-md-6 col-12">
+                                <label for="name">NAME</label>
+                                <nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
+                                    <input type="text" id="name" nz-input [value]="name" [disabled]="!isEdit"/>
+                                </nz-input-group>
+                                <ng-template #prefixTemplateUser><span nz-icon nzType="user"></span></ng-template>
+                                <ng-template #suffixTemplateInfo>
+                                    <span nz-icon nz-tooltip nzTooltipTitle="Extra information"
+                                        nzType="info-circle"></span>
+                                </ng-template>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <label for="email">EMAIL</label>
+                                <nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
+                                    <input type="email" id="email" nz-input [value]="email" [disabled]="!isEdit"/>
+                                </nz-input-group>
+                                <ng-template #prefixTemplateUser><span nz-icon nzType="user"></span></ng-template>
+                                <ng-template #suffixTemplateInfo>
+                                    <span nz-icon nzType="mail" nzTheme="outline"></span>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <div class="row mt-md-4">
+                            <div class="col-md-6 col-12">
+                                <label for="username">USERNAME</label>
+                                <nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
+                                    <input type="text" id="username" nz-input 
+                                    [value]="email"
+                                    [disabled]="!isEdit"/>
+                                </nz-input-group>
+                                <ng-template #prefixTemplateUser><span nz-icon nzType="user"></span></ng-template>
+                                <ng-template #suffixTemplateInfo>
+                                    <span nz-icon nz-tooltip nzTooltipTitle="Extra information"
+                                        nzType="info-circle"></span>
+                                </ng-template>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <label for="username">PHONE</label>
+                                <nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
+                                    <input type="text" id="username" nz-input [value]="phone" [disabled]="!isEdit"/>
+                                </nz-input-group>
+                                <ng-template #prefixTemplateUser><span nz-icon nzType="user"></span></ng-template>
+                                <ng-template #suffixTemplateInfo>
+                                    <span nz-icon nz-tooltip nzTooltipTitle="Extra information"
+                                        nzType="info-circle"></span>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <textarea nz-input
+                                    [nzAutosize]="{ minRows: 3, maxRows: 5 }" [value]="address" [disabled]="!isEdit"></textarea>
+                            </div>
+                        </div>
+                        <div class="button-personal text-end mt-4">
+                            <button class="btn btn-outline-info mr-1" style="line-height: 1.5;"
+                            (click)="onEditProfile()" *ngIf="!isEdit; else showSaveBtn">
+                                Edit
+                            </button>
+                            <ng-template #showSaveBtn>
+                                <button class="btn btn-outline-info mr-1" style="line-height: 1.5;"
+                                (click)="onUpdateProfile()">
+                                    Update
+                            </button>
+                            </ng-template>
+                            <button class="btn btn-outline-success" style="line-height: 1.5;">
+                                Change password
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

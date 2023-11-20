@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
     .subscribe((products: Product[]) => {
       this.foodData = products;
     })
+    // this.foodData = this.service.foodDetails;
 
     //USE API 
   }
