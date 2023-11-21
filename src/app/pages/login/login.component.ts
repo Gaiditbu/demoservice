@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
               phone: response.result.partner.phone,
               email: response.result.partner.email
             }
-            this.account.triggerUserUpdate();
             localStorage.setItem('user', JSON.stringify(account));
             const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
             this.router.navigateByUrl(returnUrl);
+            
           } else {
             this.messageService.add({ 
               severity: 'error', 

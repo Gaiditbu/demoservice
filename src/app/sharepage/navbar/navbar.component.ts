@@ -22,10 +22,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.account.userValue;
-    this.account.onUserUpdated().subscribe(() => {
-      this.user = this.account.userValue;
-    });
-
+    
     if (!this.user) {
       const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
       this.router.navigateByUrl(returnUrl);

@@ -16,7 +16,6 @@ const headers = new HttpHeaders({
 export class AccountService {
   private userSubject: BehaviorSubject<Account | null>;
   public user: Observable<Account | null>;
-  private userUpdated = new Subject<void>();
 
   constructor(private http: HttpClient) {
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
@@ -39,7 +38,6 @@ export class AccountService {
 
     return this.http.post<Account>(`${environment.apiUrl}/users/authenticate`, body)
       .pipe(map(response => {
-        // this.userSubject.next(response);
         return response;
       }));
   }
@@ -75,14 +73,5 @@ export class AccountService {
 
   getById(id: string) {
     return this.http.get<Account>(`${environment.apiUrl}/users/${id}`);
-  }
-
-  public triggerUserUpdate() {
-    this.userUpdated.next();
-  }
-
-  // Observable to listen for user updates
-  public onUserUpdated(): Observable<void> {
-    return this.userUpdated.asObservable();
   }
 }

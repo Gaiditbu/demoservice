@@ -26,6 +26,7 @@ import { ImageModule } from 'primeng/image';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ButtonModule } from 'primeng/button';
+import { RouterModule } from '@angular/router';
 
 registerLocaleData(en);
 
@@ -43,7 +44,6 @@ registerLocaleData(en);
     LoginComponent,
     NzDemoAvatarTypeComponent,
     PersonalComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -56,7 +56,8 @@ registerLocaleData(en);
     ImageModule,
     NzInputModule,
     NzIconModule,
-    ButtonModule
+    ButtonModule,
+    RouterModule
   ],
   providers: [
     NavbarComponent,
