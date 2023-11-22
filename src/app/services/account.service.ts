@@ -6,9 +6,7 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 
-const headers = new HttpHeaders({
-  'Content-Type': 'application/json',
-});
+
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +25,13 @@ export class AccountService {
   };
 
   public login(username: string, password: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cookie': 'session_id=3545683a2231dc4237b339862f8f1a15185f1acb'
+    });
+
+    const options = { headers: headers };
+
     const body = {
       jsonrpc: '2.0',
       params: {
@@ -36,7 +41,7 @@ export class AccountService {
       }
     };
 
-    return this.http.post<Account>(`${environment.apiUrl}/users/authenticate`, body)
+    return this.http.post<Account>(`${environment.apiUrl}/users/authenticate`, body, options)
       .pipe(map(response => {
         return response;
       }));
@@ -47,8 +52,23 @@ export class AccountService {
     this.userSubject.next(null);
   };
 
-  register(user: Account) {
-    return this.http.post(`${environment.apiUrl}/users/register`, user);
+  register(name: string, email: string, password: string, phone: string, address: string) {
+    const body = {
+      jsonrpc: '2.0',
+      params: {
+        values: {
+          name: name,
+          login: email,
+          password: password,
+          phone: phone,
+          address: address
+        }
+      }
+    };
+    return this.http.post(`${environment.apiUrl}/users/register`, body)
+      .pipe(map(response => {
+        return response;
+      }));
   }
 
   update(id: string, params: any) {

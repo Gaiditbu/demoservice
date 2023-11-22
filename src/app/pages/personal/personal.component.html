@@ -30,6 +30,8 @@
                                         nzType="info-circle"></span>
                                 </ng-template>
                             </div>
+                        </div>
+                        <div class="row mt-md-4">
                             <div class="col-md-6 col-12">
                                 <label for="email">EMAIL</label>
                                 <nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
@@ -38,21 +40,6 @@
                                 <ng-template #prefixTemplateUser><span nz-icon nzType="user"></span></ng-template>
                                 <ng-template #suffixTemplateInfo>
                                     <span nz-icon nzType="mail" nzTheme="outline"></span>
-                                </ng-template>
-                            </div>
-                        </div>
-                        <div class="row mt-md-4">
-                            <div class="col-md-6 col-12">
-                                <label for="username">USERNAME</label>
-                                <nz-input-group [nzSuffix]="suffixTemplateInfo" [nzPrefix]="prefixTemplateUser">
-                                    <input type="text" id="username" nz-input 
-                                    [value]="email"
-                                    [disabled]="!isEdit"/>
-                                </nz-input-group>
-                                <ng-template #prefixTemplateUser><span nz-icon nzType="user"></span></ng-template>
-                                <ng-template #suffixTemplateInfo>
-                                    <span nz-icon nz-tooltip nzTooltipTitle="Extra information"
-                                        nzType="info-circle"></span>
                                 </ng-template>
                             </div>
                             <div class="col-md-6 col-12">
@@ -69,6 +56,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col-12">
+                                <label>ADDRESS</label>
                                 <textarea nz-input
                                     [nzAutosize]="{ minRows: 3, maxRows: 5 }" [value]="address" [disabled]="!isEdit"></textarea>
                             </div>

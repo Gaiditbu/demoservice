@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
           this.messageService.add({ 
             severity: 'error', 
             summary: "Error", 
-            detail: `Hello ${error}` 
+            detail: `${error}` 
           });
           this.loading = false;
         }
