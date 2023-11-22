@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product.model';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
 
 @Component({
@@ -11,7 +12,6 @@ export class MenuComponent implements OnInit {
   constructor(private service:OrderDetailsService) { }
   foodData:any;
   ngOnInit(): void {
-<<<<<<< HEAD
     this.service.fetchProducts()
     .subscribe((products: Product[]) => {
       this.foodData = products;
@@ -19,9 +19,6 @@ export class MenuComponent implements OnInit {
     // this.foodData = this.service.foodDetails;
 
     //USE API 
-=======
-    this.foodData = this.service.foodDetails;
->>>>>>> origin/dinh
   }
 
 }
