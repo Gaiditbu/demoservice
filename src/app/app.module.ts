@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 /**import { ProductDetailsComponent } from './pages/product-details/product-details.component';*/
 
 import { HttpClientModule } from '@angular/common/http';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 
 
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     MenupageComponent,
     SignupComponent,
     LoginComponent,
+    ShoppingCartComponent,
     /**ProductDetailsComponent,*/
 
     
