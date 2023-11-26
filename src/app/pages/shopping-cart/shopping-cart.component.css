@@ -1,0 +1,49 @@
+.container {
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.product-list, .shopping-cart {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.product-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.product img {
+    width: 100px;
+    height: auto;
+}
+
+.shopping-cart table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.shopping-cart th, .shopping-cart td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.cart-summary {
+    text-align: right;
+    margin-top: 20px;
+
+}
