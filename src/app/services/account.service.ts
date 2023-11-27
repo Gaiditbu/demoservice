@@ -25,12 +25,12 @@ export class AccountService {
   };
 
   public login(username: string, password: string) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Cookie': 'session_id=3545683a2231dc4237b339862f8f1a15185f1acb'
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'Cookie': 'session_id=3545683a2231dc4237b339862f8f1a15185f1acb'
+    // });
 
-    const options = { headers: headers };
+    // const options = { headers: headers };
 
     const body = {
       jsonrpc: '2.0',
@@ -41,7 +41,7 @@ export class AccountService {
       }
     };
 
-    return this.http.post<Account>(`${environment.apiUrl}/users/authenticate`, body, options)
+    return this.http.post<Account>(`${environment.apiUrl}/users/authenticate`, body)
       .pipe(map(response => {
         return response;
       }));
@@ -71,19 +71,17 @@ export class AccountService {
       }));
   }
 
-  update(id: string, params: any) {
-    return this.http.put(`${environment.apiUrl}/users/update/${id}`, params)
-      .pipe(map(x => {
-        // update stored user if the logged in user updated their own record
-        if (id == this.userValue?.id) {
-          // update local storage
-          const user = { ...this.userValue, ...params };
-          localStorage.setItem('user', JSON.stringify(user));
-
-          // publish updated user to subscribers
-          this.userSubject.next(user);
-        }
-        return x;
+  update(id: string, values: any) {
+    const body = {
+      jsonrpc: '2.0',
+      params: {
+        user_id: id,
+        values: values
+      }
+    };
+    return this.http.post(`${environment.apiUrl}/users/update/${id}`, body)
+      .pipe(map(response => {
+        return response
       }));
   }
 

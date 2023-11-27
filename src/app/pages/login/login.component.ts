@@ -37,7 +37,10 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (response: any) => {
           if (response.result.code === 200) {
-            const avatar: string = `data:image/png;base64, ${response.result.partner.avatar}`
+            let avatar: string = "//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png";
+            if (response.result.partner.avatar) {
+              avatar = `data:image/png;base64, ${response.result.partner.avatar}`
+            }
             const account: Account = {
               id: response.result.partner.id,
               name: response.result.partner.name,
