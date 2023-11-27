@@ -27,6 +27,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 registerLocaleData(en);
 
@@ -44,6 +45,7 @@ registerLocaleData(en);
     LoginComponent,
     NzDemoAvatarTypeComponent,
     PersonalComponent,
+    ShoppingCartComponent,
     /**ProductDetailsComponent,*/
   ],
   imports: [

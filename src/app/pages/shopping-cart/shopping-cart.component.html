@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+
+        <div class="product-list">
+            <h2>Products</h2>
+            <ul>
+                <li *ngFor="let product of products">
+                    <div class="product">
+                        <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.price | currency:'VND' }}</p>
+                        <button (click)="addToCart(product)">Add to Cart</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="shopping-cart">
+            <h2>Shopping Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cartItem of cartItems">
+                        <td>{{ cartItem.product.name }}</td>
+                        <td>
+                            <input type="number" [(ngModel)]="cartItem.quantity" min="1">
+                            <button (click)="updateQuantity(cartItem)">Update</button>
+                        </td>
+                        <td>{{ cartItem.product.price | currency:'VND' }}</td>
+                        <td>{{ cartItem.quantity * cartItem.product.price | currency:'VND' }}</td>
+                        <td><button (click)="removeFromCart(cartItem)">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <p>Cart Total: {{ calculateCartTotal() | currency:'VND' }}</p>
+                <button>Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="runtime.js" type="module"></script>
+    <script src="polyfills.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
