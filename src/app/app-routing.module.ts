@@ -8,6 +8,7 @@ import { MenupageComponent } from './pages/menupage/menupage.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { PersonalComponent } from './pages/personal/personal.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'personal', component:PersonalComponent},
+  { path: 'shopping-cart', component: ShoppingCartComponent }
 ];
 
 
