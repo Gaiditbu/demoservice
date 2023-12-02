@@ -43,6 +43,10 @@
                 <img src="{{fd.foodImg}}" />
                 <h1>{{fd.foodName}}</h1>
                 <p>{{fd.foodPrice | currency:'USD'}}</p>
+                <button class="btn btn-outline-success text-center"
+                    (click)="addToCart(fd)">
+                    <i class="fa fa-shopping-cart"></i> Add to cart
+                </button>
             </div>
         </div>
     </div>
@@ -53,10 +57,6 @@
         </div>
     </div>
     
-    <!-- <div class="alert alert-danger" *ngIf="error">
-        <h1>An Error Occurred</h1>
-        <p>{{ response_error }}</p>
-    </div> -->
     <a routerLink="menu" class="viewmorebtn"
         *ngIf="!isFetching"
     >View more <i class="bi bi-arrow-right"></i></a>

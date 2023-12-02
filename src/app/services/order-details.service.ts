@@ -38,10 +38,7 @@ export class OrderDetailsService {
           });
         }
         return loadedProducts;
-      }),
-      catchError(errorRes => {
-          return throwError(errorRes);
-        })
+      })
     );
   }
 

@@ -63,6 +63,9 @@
 .foodbox 
 {
     padding: 10px 5px;
+    border: transparent;
+    transition: .5s;
+    margin-bottom: 10px;
 } 
 .foodbox img
 {
@@ -80,7 +83,7 @@
 .viewmorebtn
 {
     text-decoration: none;
-    background-color:var(--primary-color);
+    background-color: var(--primary-color);
     color: #000;
     padding: 10px 10px;
     border-radius: 5px;
@@ -94,4 +97,51 @@
 {
     height: 700px;
 }
+}
+.foodbox button {
+    display: none;
+    transition: all 0.5s;
+    position: relative;
+}
+.foodbox button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+}
+
+.foodbox button:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
+
+.foodbox button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: scale(1.2,1.2);
+}
+.foodbox button:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+}
+
+.foodbox:hover button {
+    display: inline;
+}
+
+.foodbox:hover {
+    box-shadow: 0 0 5px var(--primary-color);
+    border-radius: 5px;
 }

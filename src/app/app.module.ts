@@ -28,6 +28,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { OrderListModule } from 'primeng/orderlist';
 
 registerLocaleData(en);
 
@@ -60,7 +61,8 @@ registerLocaleData(en);
     NzInputModule,
     NzIconModule,
     ButtonModule,
-    RouterModule
+    RouterModule,
+    OrderListModule
   ],
   providers: [
     NavbarComponent,

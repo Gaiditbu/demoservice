@@ -25,12 +25,6 @@ export class AccountService {
   };
 
   public login(username: string, password: string) {
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Cookie': 'session_id=3545683a2231dc4237b339862f8f1a15185f1acb'
-    // });
-
-    // const options = { headers: headers };
 
     const body = {
       jsonrpc: '2.0',
