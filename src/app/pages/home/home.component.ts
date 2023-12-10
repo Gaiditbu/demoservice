@@ -33,11 +33,14 @@ export class HomeComponent implements OnInit {
   onFecthProducts() {
     this.isFetching = true;
     this.service.fetchProducts()
-    .subscribe((products: Product[]) => {
-      this.foodData = products;
-      this.isFetching = false;
-    }, (error) => {
-      this.response_error = error
+    .subscribe({
+      next: (products: Product[]) => {
+        this.foodData = products;
+        this.isFetching = false;
+      }, 
+      error: error => {
+        this.response_error = error
+      } 
     });
   }
 

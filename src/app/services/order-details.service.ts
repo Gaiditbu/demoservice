@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Product } from '../model/product.model';
-import { Observable, map, catchError, throwError } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 
 const apiUrl = 'http://localhost:8069/api/v1/product-list';

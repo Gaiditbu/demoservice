@@ -29,6 +29,7 @@ import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { OrderListModule } from 'primeng/orderlist';
+import { OrderListComponent } from './pages/order-list/order-list.component';
 
 registerLocaleData(en);
 
@@ -47,6 +48,7 @@ registerLocaleData(en);
     NzDemoAvatarTypeComponent,
     PersonalComponent,
     ShoppingCartComponent,
+    OrderListComponent,
     /**ProductDetailsComponent,*/
   ],
   imports: [
@@ -62,7 +64,6 @@ registerLocaleData(en);
     NzIconModule,
     ButtonModule,
     RouterModule,
-    OrderListModule
   ],
   providers: [
     NavbarComponent,
