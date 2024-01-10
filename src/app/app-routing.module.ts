@@ -7,7 +7,8 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+/**import { ProductDetailComponent } from './pages/product-details/product-details.component';*/
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'menu',component:MenuComponent},
@@ -15,7 +16,9 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
   {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent}
+  {path:'signup',component:SignupComponent},
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  /**{ path: 'product/:id', component: ProductDetailComponent },*/
 ];
 
 @NgModule({
