@@ -17,7 +17,7 @@
                     <div class="product">
                         <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
                         <h3>{{ product.name }}</h3>
-                        <p>{{ product.price | currency:'USD' }}</p>
+                        <p>{{ product.price | currency:'VND' }}</p>
                         <button (click)="addToCart(product)">Add to Cart</button>
                     </div>
                 </li>
@@ -43,7 +43,7 @@
                             <input type="number" [(ngModel)]="cartItem.quantity" min="1">
                             <button (click)="updateQuantity(cartItem)">Update</button>
                         </td>
-                        <td>{{ cartItem.product.price | currency:'USD' }}</td>
+                        <td>{{ cartItem.product.price | currency:'VND' }}</td>
                         <td>{{ cartItem.quantity * cartItem.product.price | currency:'VND' }}</td>
                         <td><button (click)="removeFromCart(cartItem)">Remove</button></td>
                     </tr>
