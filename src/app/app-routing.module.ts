@@ -19,11 +19,20 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'personal', component:PersonalComponent},
-<<<<<<< HEAD
   {path:'shopping-cart', component:ShoppingCartComponent},
-=======
   { path: 'shopping-cart', component: ShoppingCartComponent }
->>>>>>> f9aa3b2d44d9172fe190d24a24fad6dff7e5a46c
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+/**import { ProductDetailComponent } from './pages/product-details/product-details.component';*/
+const routes: Routes = [
+  {path:'',component:HomeComponent},
+  {path:'menu',component:MenuComponent},
+  {path:'menu/:id',component:MenupageComponent},
+  {path:'about',component:AboutComponent},
+  {path:'contact',component:ContactComponent},
+  {path:'login',component:LoginComponent},
+  {path:'signup',component:SignupComponent},
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  /**{ path: 'product/:id', component: ProductDetailComponent },*/
 ];
 
 
