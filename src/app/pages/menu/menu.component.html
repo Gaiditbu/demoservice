@@ -16,14 +16,13 @@
                 <p>{{fd.foodDetails}}</p>
                 <p>{{fd.foodPrice | currency:'VND'}}</p>
                 <br/>
-                <a class="buybtn" [routerLink]="['/menu',fd.id]">Buy Now &nbsp;<i class="bi bi-bag"></i></a>
-                <a class="buybtn1" [routerLink]="">View Details</a>
+                <button class="btn btn-success"
+                  (click)="addToCart(fd)">Buy Now &nbsp;<i class="bi bi-bag"></i></button>
+                <a class="btn btn-outline-success" [routerLink]="['/menu',fd.id]">View Detail</a>
             </div>
-
+    
+            
+    
         </div>
-
-
-
+    
     </div>
-
-</div>
