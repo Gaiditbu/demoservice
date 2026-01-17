@@ -10,18 +10,28 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
-
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
-
-
-
-/**import { ProductDetailsComponent } from './pages/product-details/product-details.component';*/
-
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzDemoAvatarTypeComponent } from './ng-zero/nz-demo-avatar-type/nz-demo-avatar-type.component';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { ToastModule } from 'primeng/toast';
+import { PersonalComponent } from './pages/personal/personal.component';
+import { ImageModule } from 'primeng/image';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { ButtonModule } from 'primeng/button';
+import { RouterModule } from '@angular/router';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { OrderListModule } from 'primeng/orderlist';
+import { OrderListComponent } from './pages/order-list/order-list.component';
 
-
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -35,18 +45,31 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
     MenupageComponent,
     SignupComponent,
     LoginComponent,
+    NzDemoAvatarTypeComponent,
+    PersonalComponent,
     ShoppingCartComponent,
+    OrderListComponent,
     /**ProductDetailsComponent,*/
-
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzAvatarModule,
+    ToastModule,
+    ImageModule,
+    NzInputModule,
+    NzIconModule,
+    ButtonModule,
+    RouterModule,
   ],
-  providers: [],
+  providers: [
+    NavbarComponent,
+    { provide: NZ_I18N, useValue: en_US, }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

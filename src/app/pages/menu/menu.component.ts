@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product.model';
+import { CartService } from 'src/app/services/cart.service';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-menu',
@@ -8,10 +11,26 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private service:OrderDetailsService) { }
+  constructor(
+      private service:OrderDetailsService, 
+      private cartService: CartService,
+      private message: NzMessageService
+    ) { }
   foodData:any;
+
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product);
+    this.message.create("success", "Add to cart successfuly!");
+  }
+  
   ngOnInit(): void {
-    this.foodData = this.service.foodDetails;
+    this.service.fetchProducts()
+    .subscribe((products: Product[]) => {
+      this.foodData = products;
+    })
+    // this.foodData = this.service.foodDetails;
+
+    //USE API 
   }
 
 }

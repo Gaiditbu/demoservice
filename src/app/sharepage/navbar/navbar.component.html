@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="">
       <img src="../../../assets/img/bird2.png" alt="DemoKitchen Logo" width="50 " height="50">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@
     </button>
     
     <div class="collapse navbar-collapse" id="navbarNav">
-       <form class="d-flex">
+      <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
@@ -17,23 +17,52 @@
           <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="menu" routerLinkActive="active-link">Menu</a>
+          <a class="nav-link" routerLink="/menu" routerLinkActive="active-link">Menu</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" routerLink="about" routerLinkActive="active-link">About</a>
+          <a class="nav-link" routerLink="/about" routerLinkActive="active-link">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Contact</a>
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active-link">Contact</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" routerLink="shopping-cart" routerLinkActive="active-link">
-         
-            <i class="fa fa-shopping-cart"></i> 
-          </a> 
+          <a class="nav-link" routerLink="/shopping-cart" routerLinkActive="active-link" aria-label="Shopping Cart">
+            <i class="fa fa-shopping-cart"></i> <!-- Class của Font Awesome -->
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="login" routerLinkActive="active-link" class="btn btn-dark">Login/Sign In</a>
+          
+        <li class="nav-item"
+          *ngIf="!user; else showAvatar">
+            <a class="btn btn-dark" [routerLink]="'/login'" routerLinkActive="active-link">Login/Sign In</a>
         </li>
+        <ng-template #showAvatar>
+          <li class="rounded-pill badge bg-dark p-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <a>
+              <nz-avatar nzIcon="user" 
+              [nzSrc]="user.avatar">
+              </nz-avatar>
+            </a>
+          </li>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item" type="button"
+              [routerLink]="'personal'" routerLinkActive="active-link">
+                <span nz-icon nzType="user" nzTheme="outline"></span> Personal
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" type="button"
+              [routerLink]="'order-list'" routerLinkActive="active-link">
+              <span nz-icon nzType="pic-left" nzTheme="outline"></span> Order list
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" type="button" 
+              (click)="logout()">
+                <span nz-icon nzType="logout" nzTheme="outline"></span> Log out</a>
+            </li>
+          </ul>
+        </ng-template>
       </ul>
     </div>
   </div>

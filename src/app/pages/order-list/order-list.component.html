@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="rounded">
+                <div class="table-responsive table-borderless">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-success ">Order #</th>
+                                <th class="text-success ">Customer</th>
+                                <th class="text-success ">State</th>
+                                <th class="text-success ">Total</th>
+                                <th class="text-success ">Created</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr class="cell-1" *ngFor="let order of orderList">
+                                <td>{{order.orderName}}</td>
+                                <td>{{order.customer}}</td>
+                                <td>
+                                    <span class="badge text-bg-warning" *ngIf="order.state === 'draft'">
+                                        {{order.state}}
+                                    </span>
+                                    <span class="badge text-bg-success" *ngIf="order.state === 'sale'">
+                                        {{order.state}}
+                                    </span>
+                                    <span class="badge text-bg-success" *ngIf="order.state === 'cancel'">
+                                        {{order.state}}
+                                    </span>
+                                </td>
+                                <td>{{order.total | currency:'USD'}}</td>
+                                <td>{{order.createDate}}</td>
+                                <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
